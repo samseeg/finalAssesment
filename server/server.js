@@ -80,11 +80,6 @@ passport.deserializeUser(function (id, done) {
     //controller calls
 const controller = require('./controller/controller');
 
-app.get('/categories', controller.getCategories);
-
-app.post('/posts', controller.createPost);
-
-app.delete('/deletepost/:id', controller.deletePost);
 
 
 

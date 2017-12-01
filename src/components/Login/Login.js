@@ -8,7 +8,7 @@ class Login extends Component {
         return (
             <div className='login_wrapper'>
                 <div className='login_title'>
-                    baarzz
+                    <a href={process.env.REACT_APP_LOGIN} className='login_btn'><div>Login/Register</div></a>
                     </div>
             </div>
         )
