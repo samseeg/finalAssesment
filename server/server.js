@@ -51,7 +51,7 @@ passport.use(new Auth0Strategy({
     //auth0 authentication
 app.get('/auth', passport.authenticate('auth0'));
 app.get('/auth/callback', passport.authenticate('auth0', {
-    successRedirect: '/#/categories',
+    successRedirect: 'http://localhost:3000/#/browse',
     failureRedirect: '/auth'
 }));
 app.get('/auth/me', (req, res) => {
@@ -81,18 +81,10 @@ passport.deserializeUser(function (id, done) {
 const controller = require('./controller/controller');
 
 app.get('/categories', controller.getCategories);
-app.get('/categories/:id', controller.getPosts);
-app.get('/categories/posts/:id', controller.get1Post);
-app.get('/comments/:id', controller.getComments);
-app.get('/user/:id', controller.getUsersPosts);
-app.get('/currentuser', controller.getCurrentUser);
 
 app.post('/posts', controller.createPost);
-app.post('/comment', controller.createComment);
-app.post('/categorypost', controller.createCategory);
 
 app.delete('/deletepost/:id', controller.deletePost);
-app.delete('/deletecomments/:id', controller.deleteComments);
 
 
 
